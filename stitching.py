@@ -3,7 +3,7 @@ import logging
 
 import cv2
 
-from image_stitching import ImageStitcher
+from image_stitching import ImageStitcherSift, ImageStitcherOrb
 from image_stitching import load_frames
 from image_stitching import display
 
@@ -45,7 +45,7 @@ if __name__ == '__main__':
                 break
 
         if args.save:
-            image_name = f'result_{idx}.jpg'
+            image_name = f'result/result_{idx}.jpg'
             logging.info(f'saving result image on {image_name}')
 
             cv2.imwrite(image_name, result)

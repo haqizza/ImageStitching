@@ -1,4 +1,4 @@
-from .stitcher import ImageStitcher
+from .stitcher import ImageStitcherSift, ImageStitcherOrb
 from .helpers import display
 from .helpers import load_frames
 
