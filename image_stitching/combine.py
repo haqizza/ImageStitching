@@ -20,7 +20,10 @@ def compute_matches(features0, features1, matcher, knn=5, lowe=0.7):
     logging.debug("filtering matches with lowe test")
 
     positive = []
-    for match0, match1 in matches:
+    for mc in matches:
+        if len(mc) != 2:
+            continue
+        match0, match1 = mc
         if match0.distance < lowe * match1.distance:
             positive.append(match0)
 
