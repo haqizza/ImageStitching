@@ -75,7 +75,7 @@ class ImageStitcherOrb:
         self.knn_clusters = knn_clusters
 
         self.flann = cv2.FlannBasedMatcher({'algorithm': 0, 'trees': 5}, {'checks': 50})
-        self.sift = cv2.ORB_create()
+        self.orb = cv2.ORB_create()
 
         self.result_image = None
         self.result_image_gray = None
