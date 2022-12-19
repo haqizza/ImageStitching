@@ -19,6 +19,7 @@ class ImageStitcherSift:
         self.knn_clusters = knn_clusters
 
         self.flann = cv2.FlannBasedMatcher({'algorithm': 0, 'trees': 5}, {'checks': 50})
+        
         self.sift = cv2.SIFT_create()
 
         self.result_image = None
@@ -74,7 +75,14 @@ class ImageStitcherOrb:
         self.lowe = lowe
         self.knn_clusters = knn_clusters
 
-        self.flann = cv2.FlannBasedMatcher({'algorithm': 0, 'trees': 5}, {'checks': 50})
+        self.flann = cv2.FlannBasedMatcher({
+            'algorithm': 6,
+            'table_number' : 6, 
+            'key_size' : 12,
+            'multi_probe_level' : 1
+            },
+             {'checks': 50})
+        # self.bf = cv2.BFMatcher(cv2.NORM_HAMMING, crossCheck=True)
         self.orb = cv2.ORB_create()
 
         self.result_image = None
